@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cctvs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item name</th>
+      <th>Category</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cctvs.each do |cctv| %>
+      <tr>
+        <td><%= cctv.item_name %></td>
+        <td><%= cctv.category %></td>
+        <td><%= cctv.price %></td>
+        <td><%= link_to 'Show', cctv %></td>
+        <td><%= link_to 'Edit', edit_cctv_path(cctv) %></td>
+        <td><%= link_to 'Destroy', cctv, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cctv', new_cctv_path %>

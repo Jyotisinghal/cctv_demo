@@ -1,0 +1,123 @@
+
+<%= simple_form_for(@customer) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <td>ITEM NAME</td>
+        <td>CATEGORY</td>
+        <td>PRICE</td>
+        <td>QUANTITY</td>
+        <td>TOTAL</td>
+      </tr>
+      </thead>
+    </table>
+    <%= f.fields_for :items do |item| %>
+      <table class="table">
+        <tbody>
+        <tr>
+          <td>CAMERA</td>
+          <td><%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control', :autofocus => true} %></td>
+          <td><%= item.input :price, :label => false %></td>
+          <td><%= item.input :quantity, :label => false %></td>
+          <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+        </tr>
+        </tbody>
+      </table>
+    <% end %>
+  <%= f.fields_for :items do |item| %>
+    <table class="table">
+      <tbody>
+      <tr>
+        <td>DVR</td>
+        <td><%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control', :autofocus => true} %></td>
+        <td><%= item.input :price, :label => false %></td>
+        <td><%= item.input :quantity, :label => false %></td>
+        <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+      </tr>
+      </tbody>
+    </table>
+  <% end %>
+  <%= f.fields_for :items do |item| %>
+    <table class="table">
+      <tbody>
+      <tr>
+        <td>SMPS</td>
+        <td><%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control', :autofocus => true} %></td>
+        <td><%= item.input :price, :label => false %></td>
+        <td><%= item.input :quantity, :label => false %></td>
+        <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+      </tr>
+      </tbody>
+    </table>
+  <% end %>
+  <%= f.fields_for :items do |item| %>
+    <table class="table">
+      <tbody>
+      <tr>
+        <td>HDD</td>
+        <td><%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control', :autofocus => true} %></td>
+        <td><%= item.input :price, :label => false %></td>
+        <td><%= item.input :quantity, :label => false %></td>
+        <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+      </tr>
+      </tbody>
+    </table>
+  <% end %>
+  <%= f.fields_for :items do |item| %>
+    <table class="table">
+      <tbody>
+      <tr>
+        <td>CONNECTOR</td>
+        <td><%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control', :autofocus => true} %></td>
+        <td><%= item.input :price, :label => false %></td>
+        <td><%= item.input :quantity, :label => false %></td>
+        <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+      </tr>
+      </tbody>
+    </table>
+  <% end %>
+  <%= f.fields_for :items do |item| %>
+    <table class="table">
+      <tbody>
+      <tr>
+        <td>WIRE</td>
+        <td><%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control', :autofocus => true} %></td>
+        <td><%= item.input :price, :label => false %></td>
+        <td><%= item.input :quantity, :label => false %></td>
+        <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+      </tr>
+      </tbody>
+    </table>
+  <% end %>
+  <%= f.fields_for :items do |item| %>
+    <table class="table">
+      <tbody>
+      <tr>
+        <td>INSTALLATION</td>
+        <td><%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control', :autofocus => true} %></td>
+        <td><%= item.input :price, :label => false %></td>
+        <td><%= item.input :quantity, :label => false %></td>
+        <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+      </tr>
+      </tbody>
+    </table>
+  <% end %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :contact %>
+    <%= f.input :email %>
+    <%= f.input :address %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+
+
+<% end %>
+
+
