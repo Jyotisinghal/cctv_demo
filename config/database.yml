@@ -49,6 +49,5 @@ test:
 #
 production:
   <<: *default
-  database: cctv-demo_production
-  username: cctv-camera
-  password: <%= ENV['CCTV-CAMERA_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  adapter: postgresql
