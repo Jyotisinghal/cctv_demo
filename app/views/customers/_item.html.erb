@@ -1,0 +1,12 @@
+<table class="table">
+  <tbody>
+  <tr>
+    <td>DVR</td>
+    <td><%= f.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control category_name', :autofocus => true} %></td>
+    <td><%= f.input :price, :label => false %></td>
+
+    <td><%= f.input :quantity, :label => false %></td>
+    <td><%= f.input :customer_id, :label => false, as: :hidden %></td>
+  </tr>
+  </tbody>
+</table>

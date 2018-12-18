@@ -28,5 +28,30 @@
   <%= @customer.address %>
 </p>
 
+<table class="table">
+  <thead>
+  <tr>
+    <th>ITEMS NAME</th>
+    <th>CATEGORY</th>
+    <th>PRICE</th>
+    <th>QUANTITY</th>
+    <th>TOTAL</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= item.cctv.product.name %></td>
+      <td><%= item.cctv.category %></td>
+      <td><%= item.cctv.price %></td>
+      <td><%= item.quantity %></td>
+
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
