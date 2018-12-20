@@ -1,105 +1,138 @@
-<!--<script>-->
 
-<!--    var items = ["CAMERA","DVR", "SMPS","HDD","CONNECTORS","WIRES","INSTALLATION"]-->
-<!--    var cctvs = <%#= Cctv.all.group_by{|x| [x.product_id, x.id].join(":") }.to_json.html_safe %>;-->
+<script>
+  var items = ["CAMERA","DVR","SMPS","HDD","CONNECTORS","WIRES","INSTALLATION"]
+  var cctvs = <%= Cctv.all.group_by{|x| [x.product.name, x.product_id].join(":") }.to_json.html_safe %>;
+  var cctvsPrice = <%= Cctv.all.group_by{|x| [x.product.name, x.id].join(":") }.to_json.html_safe %>;
 
-<!--    var price= <%#= Cctv.all.group_by{|x| [x.Items.name, x.Cctv.category, x.id].join(":") }.to_json.html_safe %>;-->
+    
+  jQuery(function() {
+    return $(document).on("click",".brand-dropdown",function(){
 
+      selectedCategory = $(this).text();
+      // alert(selectedCategory);
+      if (selectedCategory == "CAMERA") {
+        selectedBrand = 1;
+        selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+      }
+      else if (selectedCategory == "DVR") {
+        selectedBrand = 2;
+        selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+      }
+      else if (selectedCategory == "SMPS") {
+        selectedBrand = 3;
+        selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+      }
+      else if (selectedCategory == "CONNECTOR") {
+        selectedBrand = 4;
+        selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+      }
+      else if (selectedCategory == "HDD") {
+        selectedBrand = 5;
+        selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+      }
+      else if (selectedCategory == "WIRE") {
+        selectedBrand = 6;
+        selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+      }
+      else {
+        selectedBrand = 7;
+        selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+      }
+      
+      productDropdown = $(this).next('td').children('.category_name');
+      productDropdown.empty();
 
-<!--    jQuery(function() {-->
-<!--        var brands;-->
-<!--        brands = $('#item-category-name').html();-->
+      productDropdown.append($("<option></option>")
+        .attr("value","")
+        .text("Select Model")); 
 
-<!--        return $(document).on("change",".product_name",function(){-->
-<!--            var product = 1;-->
-<!--            selectProducts = cctvs[product + ":" + selectedBrand];-->
-<!--            var category, options;-->
-<!--            category = $('.product_name :selected').text();-->
-<!--            alert(category);-->
+      $.each(selectProducts, function(key, cctv) { 
+       // alert('hii');  
+        productDropdown.append($("<option></option>")
+          .attr("value",cctv.id)
+          .text(cctv.category)); 
+      });
+    });
+  });
 
-<!--            options = $(brands).filter("optgroup[label=" + category + "]").html();-->
+ jQuery(function() {
+    return $(document).on("change",".category_name",function(){
+      selectedBrand = $(this).parent('td').prev('td').text();
+      // alert(selectedBrand);
+      selectedCategory = $(this).val();
+      // alert(selectedCategory);
+      selectProducts = cctvsPrice[selectedBrand + ":" + selectedCategory];
+      productPrice = $(this).parent('td').next('td').children('.cctv-price');
+      productPrice.empty();
 
-<!--            console.log(options);-->
-<!--            if (options) {-->
-<!--                return $('#item-category-name').html(options);-->
-<!--                // return $('#product_brand_id').parent().show();-->
-<!--            } else {-->
-<!--                // return $('#product_brand_id').parent().hide();-->
-<!--                return $('#item-category-name').empty();-->
-<!--            }-->
-<!--        });-->
-<!--    });-->
+      var price = selectProducts[0].price;
+      $(this).parent('td').next('td').children('.cctv-price').val(price);
 
+    });
+  });
 
-<!--    // jQuery(function() {-->
-<!--    //     var items;-->
-<!--    //     items = $('category_name').html();-->
-<!--    //     console.log(items);-->
-<!--    //     return $(document).on("click",".product_name",function(){-->
-<!--    //         product = smps;-->
-<!--    //         selectProducts = cctvs[product + ":" + selectedBrand];-->
-<!--    //-->
-<!--    //-->
-<!--    //-->
-<!--    //         if(items == "CAMERA")-->
-<!--    //     {-->
-<!--    //         Category =  cctv.category;-->
-<!--    //     }-->
-<!--    //         // jQuery(function() {-->
-<!--    //         //     return $(document).on("change",".brand-dropdown",function(){-->
-<!--    //         //         selectedCategory = $(this).parent('td').prev('td').children('.category-dropdown').val();-->
-<!--    //         //         selectedBrand = $(this).val();-->
-<!--    //         //         selectProducts = products[selectedCategory + ":" + selectedBrand];-->
-<!--    //         //         productDropdown = $(this).parent('td').next('td').children('.model-dropdown');-->
-<!--    //         //         productDropdown.empty();-->
-<!--    //         //-->
-<!--    //         //         productDropdown.append($("<option></option>")-->
-<!--    //         //             .attr("value","")-->
-<!--    //         //             .text("Select Model"));-->
-<!--    //         //-->
-<!--    //         //         $.each(selectProducts, function(key, product) {-->
-<!--    //         //             // alert('hii');-->
-<!--    //         //             productDropdown.append($("<option></option>")-->
-<!--    //         //                 .attr("value",product.id)-->
-<!--    //         //                 .text(product.model));-->
-<!--    //         //         });-->
-<!--    //         //     });-->
-<!--    //         // });-->
-<!--    //-->
-<!--    //     });-->
-<!--    // });-->
+ 
 
+</script>
 
-
-<!--</script>-->
-
-    <%= simple_form_for(@customer) do |f| %>
+  <%= simple_form_for(@customer) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <table class="table">
-      <thead>
-      <tr>
-        <td>ITEM NAME</td>
-        <td>CATEGORY</td>
-        <td>PRICE</td>
-        <td>QUANTITY</td>
-        <td>TOTAL</td>
-      </tr>
+
+   
+    
+      <table class="table">
+        <thead>
+          <tr>
+            <td>ITEM NAME</td>
+            <td>CATEGORY</td>
+            <td>PRICE</td>
+            <td>QUANTITY</td>
+            <td>TOTAL</td>
+
+          </tr>
       </thead>
+        <tbody>
+          <%= f.fields_for :items do |item| %>
+          <tr class="item-row">
+            <td class="brand-dropdown">CAMERA</td>
+            <td>
+              <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control category_name', :autofocus => true} %>
+              </td>
+            <td><%= item.number_field :price, :label => false, :disabled => true, class: "cctv-price" %></td>
+
+            <td><%= item.input :quantity, :label => false, class: "quantity" %></td>
+            
+            <td class="price_td" style="text-align: right;"><span class="price"><i class="fa fa-inr"></i>0.00</span><span class="subtotal_currency"></span></td>
+            <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+          </tr>
+              <% end %>
+        </tbody>
+      </table>
+
+
+
+    <table>
+      <thead>
+        <tr>
+          <th> NAME</th>
+          <th>CONTACT</th>
+          <th>EMAIL</th>
+          <th>ADDRESS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= f.input :name, label: false %></td>
+          <td><%= f.input :contact, label: false %></td>
+          <td><%= f.input :email, label: false %></td>
+          <td><%= f.input :address, label: false %></td>
+        </tr>
+      </tbody>
     </table>
-    <%= f.fields_for :items do |item| %>
-    <%= render 'item', f: item  %>
-    <% end %>
 
 
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :contact %>
-    <%= f.input :email %>
-    <%= f.input :address %>
-  </div>
 
   <div class="form-actions">
     <%= f.button :submit %>

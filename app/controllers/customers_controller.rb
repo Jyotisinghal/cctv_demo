@@ -17,9 +17,9 @@ class CustomersController < ApplicationController
   # GET /customers/new
   def new
     @customer = Customer.new
-
-    @customer.items.new
-
+    7.times do
+      @customer.items.new
+    end
   end
 
   # GET /customers/1/edit
@@ -74,6 +74,7 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:name, :contact, :email, :address, items_attributes: Item.attribute_names.map(&:to_sym).push(:_destroy))
+      # params.require(:customer).permit(:id, :name, :contact, :email, :address, items_attributes: Item.attribute_names.map(&:to_sym).push(:_destroy))
+      params.require(:customer).permit(:id, :name, :contact, :email, :address, :items_attributes => [:id, :_destroy, :customer_id, :cctv_id, :price, :quantity])
     end
 end
