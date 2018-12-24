@@ -1,12 +1,125 @@
-<table class="table">
-  <tbody>
-  <tr>
-    <td>DVR</td>
-    <td><%= f.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control category_name', :autofocus => true} %></td>
-    <td><%= f.input :price, :label => false %></td>
+      <table class="table">
+        <thead>
+          <tr>
+            <td>ITEM NAME</td>
+            <td>CATEGORY</td>
+            <!-- <td>PRICE</td>
+            <td>TOTAL</td> -->
 
-    <td><%= f.input :quantity, :label => false %></td>
-    <td><%= f.input :customer_id, :label => false, as: :hidden %></td>
-  </tr>
-  </tbody>
-</table>
+          </tr>
+      </thead>
+        <tbody>
+          
+          <%= f.fields_for :items do |item| %>
+          <tr class="item-row">
+            <td class="dome-camera-dropdown">DOME CAMERA</td>
+            <td>
+              <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control dome-camera-category', :autofocus => true} %>
+              </td>
+              <td><%= item.input :quantity, :label => false, id: "qty" %></td>
+           <!--  <td><%= item.number_field :price, :label => false, class: "cctv-price" %></td>
+
+          
+            
+            <td class="price_td" style="text-align: right;"><span class="price"><i class="fa fa-inr"></i>0.00</span><span class="subtotal_currency"></span></td> -->
+            <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+          </tr>
+          <% end %>
+          
+
+          
+          <%= f.fields_for :items do |item| %>
+          <tr class="item-row">
+            <td class="bullet-camera-dropdown">BULLET CAMERA</td>
+            <td>
+              <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control bullet-camera-category', :autofocus => true} %>
+              </td>
+              <td><%= item.input :quantity, :label => false, id: "qty" %></td>
+           <!--  <td><%= item.number_field :price, :label => false, class: "cctv-price" %></td>
+            <td class="price_td" style="text-align: right;"><span class="price"><i class="fa fa-inr"></i>0.00</span><span class="subtotal_currency"></span></td> -->
+            <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+          </tr>
+          <% end %>
+         
+
+          <%= f.fields_for :items do |item| %>
+            <tr class="item-row">
+              <td class="dvr-dropdown">DVR</td>
+              <td>
+                <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control dvr-category', :autofocus => true} %>
+                </td>
+              <!-- <td><%= item.number_field :price, :label => false, class: "cctv-price" %></td>
+            <td class="price_td" style="text-align: right;"><span class="price"><i class="fa fa-inr"></i>0.00</span><span class="subtotal_currency"></span></td> -->
+              <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+            </tr>
+          <% end %>
+         
+
+          <%= f.fields_for :items do |item| %>
+            <tr class="item-row">
+              <td class="smps-dropdown">SMPS</td>
+              <td>
+                <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control smps-category', :autofocus => true} %>
+                </td>
+              <!-- <td><%= item.number_field :price, :label => false, class: "cctv-price" %></td>
+              <td class="price_td" style="text-align: right;"><span class="price"><i class="fa fa-inr"></i>0.00</span><span class="subtotal_currency"></span></td> -->
+              <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+            </tr>
+          <% end %>
+         
+
+          <%= f.fields_for :items do |item| %>
+            <tr class="item-row">
+              <td class="connector-dropdown">CONNECTOR</td>
+              <td>
+                <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control connector-category', :autofocus => true} %>
+              <!--   </td>
+              <td><%= item.number_field :price, :label => false, class: "cctv-price" %></td>
+              <td class="price_td" style="text-align: right;"><span class="price"><i class="fa fa-inr"></i>0.00</span><span class="subtotal_currency"></span></td> -->
+              <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+            </tr>
+          <% end %>
+          
+
+          <%= f.fields_for :items do |item| %>
+            <tr class="item-row">
+              <td class="hdd-dropdown">HDD</td>
+              <td>
+                <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control hdd-category', :autofocus => true} %>
+                </td>
+             <!--  <td><%= item.number_field :price, :label => false, class: "cctv-price" %></td>
+             <td class="price_td" style="text-align: right;"><span class="price"><i class="fa fa-inr"></i>0.00</span><span class="subtotal_currency"></span></td> -->
+              <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+            </tr>
+          <% end %>
+         
+
+          
+          <%= f.fields_for :items do |item| %>
+            <tr class="item-row">
+              <td class="wire-dropdown">WIRE</td>
+              <td>
+                <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control wire-category', :autofocus => true} %>
+                </td>
+              <!-- <td><%= item.number_field :price, :label => false, class: "cctv-price" %></td>
+              <td class="price_td" style="text-align: right;"><span class="price"><i class="fa fa-inr"></i>0.00</span><span class="subtotal_currency"></span></td> -->
+              <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+            </tr>
+          <% end %>
+          
+
+         
+          <%= f.fields_for :items do |item| %>
+            <tr class="item-row">
+              <td class="installation-dropdown">INSTALLATION</td>
+              <td>
+                <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control installation-category', :autofocus => true} %>
+                </td>
+             <!--  <td><%= item.number_field :price, :label => false, class: "cctv-price" %></td>
+              <td class="price_td" style="text-align: right;"><span class="price"><i class="fa fa-inr"></i>0.00</span><span class="subtotal_currency"></span></td> -->
+              <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
+            </tr>
+          <% end %>
+
+        </tbody>
+      </table>

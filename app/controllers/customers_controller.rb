@@ -17,9 +17,9 @@ class CustomersController < ApplicationController
   # GET /customers/new
   def new
     @customer = Customer.new
-    7.times do
+    
       @customer.items.new
-    end
+    
   end
 
   # GET /customers/1/edit

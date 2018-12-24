@@ -1,0 +1,22 @@
+<table>
+<thead>
+  <tr>
+    <th> NAME</th>
+    <th>CONTACT</th>
+    <th>EMAIL</th>
+    <th>ADDRESS</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><%= f.input :name, label: false %></td>
+    <td><%= f.input :contact, label: false %></td>
+    <td><%= f.input :email, label: false %></td>
+    <td><%= f.input :address, label: false %></td>
+  </tr>
+</tbody>
+</table>
+
+<div class="form-actions">
+  <%= f.button :submit %>
+</div>

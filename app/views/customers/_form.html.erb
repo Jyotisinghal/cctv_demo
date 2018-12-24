@@ -4,59 +4,169 @@
   var cctvs = <%= Cctv.all.group_by{|x| [x.product.name, x.product_id].join(":") }.to_json.html_safe %>;
   var cctvsPrice = <%= Cctv.all.group_by{|x| [x.product.name, x.id].join(":") }.to_json.html_safe %>;
 
-    
-  jQuery(function() {
-    return $(document).on("click",".brand-dropdown",function(){
+    $(document).ready(function(){
 
-      selectedCategory = $(this).text();
-      // alert(selectedCategory);
-      if (selectedCategory == "CAMERA") {
-        selectedBrand = 1;
-        selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
-      }
-      else if (selectedCategory == "DVR") {
-        selectedBrand = 2;
-        selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
-      }
-      else if (selectedCategory == "SMPS") {
-        selectedBrand = 3;
-        selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
-      }
-      else if (selectedCategory == "CONNECTOR") {
-        selectedBrand = 4;
-        selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
-      }
-      else if (selectedCategory == "HDD") {
-        selectedBrand = 5;
-        selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
-      }
-      else if (selectedCategory == "WIRE") {
-        selectedBrand = 6;
-        selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
-      }
-      else {
-        selectedBrand = 7;
-        selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
-      }
-      
-      productDropdown = $(this).next('td').children('.category_name');
-      productDropdown.empty();
+  //for Dome camera
+  selectedCategory = $('.dome-camera-dropdown').text();  
+ 
+  selectedBrand = 1;
+  selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
 
+  productDropdown = $('.dome-camera-category');
+  productDropdown.empty();
+
+  productDropdown.append($("<option></option>")
+    .attr("value","")
+    .text("Select category")); 
+
+  $.each(selectProducts, function(key, cctv) {  
       productDropdown.append($("<option></option>")
-        .attr("value","")
-        .text("Select Model")); 
+        .attr("value",cctv.id)
+        .text(cctv.category)); 
+  });
 
-      $.each(selectProducts, function(key, cctv) { 
+
+    //for Bullet camera
+    selectedCategory = $('.bullet-camera-dropdown').text();  
+   
+    selectedBrand = 2;
+    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+
+    productDropdown = $('.bullet-camera-category');
+    productDropdown.empty();
+
+    productDropdown.append($("<option></option>")
+      .attr("value","")
+      .text("Select category")); 
+
+    $.each(selectProducts, function(key, cctv) {  
+        productDropdown.append($("<option></option>")
+          .attr("value",cctv.id)
+          .text(cctv.category)); 
+    });
+
+
+    //for dvr
+    selectedCategory = $('.dvr-dropdown').text();
+  
+    selectedBrand = 3;
+    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+    
+    productDropdown = $('.dvr-category');
+    productDropdown.empty();
+
+    productDropdown.append($("<option></option>")
+        .attr("value","")
+        .text("Select category")); 
+
+    $.each(selectProducts, function(key, cctv) { 
        // alert('hii');  
         productDropdown.append($("<option></option>")
           .attr("value",cctv.id)
           .text(cctv.category)); 
-      });
     });
-  });
+
+    //for smps
+    selectedCategory = $('.smps-dropdown').text();
+    
+    selectedBrand = 4;
+    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+
+    productDropdown = $('.smps-category');
+    productDropdown.empty();
+
+    productDropdown.append($("<option></option>")
+       .attr("value","")
+       .text("Select category")); 
+
+    $.each(selectProducts, function(key, cctv) {  
+        productDropdown.append($("<option></option>")
+          .attr("value",cctv.id)
+          .text(cctv.category)); 
+    });
+
+    //for connector
+    selectedCategory = $('.connector-dropdown').text();
+    
+    selectedBrand = 5;
+    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+     
+    productDropdown = $('.connector-category');
+    productDropdown.empty();
+
+    productDropdown.append($("<option></option>")
+        .attr("value","")
+        .text("Select category")); 
+
+    $.each(selectProducts, function(key, cctv) { 
+    productDropdown.append($("<option></option>")
+        .attr("value",cctv.id)
+        .text(cctv.category)); 
+    });
+    
+    //FOR HDD
+    selectedCategory = $('.hdd-dropdown').text();
+
+    selectedBrand = 6;
+    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+ 
+    productDropdown = $('.hdd-category');
+    productDropdown.empty();
+
+    productDropdown.append($("<option></option>")
+       .attr("value","")
+       .text("Select category")); 
+
+    $.each(selectProducts, function(key, cctv) { 
+        
+    productDropdown.append($("<option></option>")
+          .attr("value",cctv.id)
+          .text(cctv.category)); 
+    });
+
+    // for wire
+    selectedCategory = $('.wire-dropdown').text();
+    selectedBrand = 7;
+    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+
+    productDropdown = $('.wire-category');
+    productDropdown.empty();
+
+    productDropdown.append($("<option></option>")
+        .attr("value","")
+        .text("Select category")); 
+
+    $.each(selectProducts, function(key, cctv) { 
+       // alert('hii');  
+        productDropdown.append($("<option></option>")
+          .attr("value",cctv.id)
+          .text(cctv.category)); 
+    });
+
+    //for installation
+    selectedCategory = $('.installation-dropdown').text();
+
+    selectedBrand = 8;
+    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+    
+  productDropdown = $('.installation-category');
+    productDropdown.empty();
+
+    productDropdown.append($("<option></option>")
+        .attr("value","")
+        .text("Select category")); 
+
+    $.each(selectProducts, function(key, cctv) { 
+       
+        productDropdown.append($("<option></option>")
+          .attr("value",cctv.id)
+          .text(cctv.category)); 
+    });
+});
+
 
  jQuery(function() {
-    return $(document).on("change",".category_name",function(){
+    return $(document).on(function(){
       selectedBrand = $(this).parent('td').prev('td').text();
       // alert(selectedBrand);
       selectedCategory = $(this).val();
@@ -72,71 +182,59 @@
   });
 
  
+ function addition(){
 
+      var dome = Number(document.getElementById("dome").value);
+
+      var bullet = Number(document.getElementById("bullet").value);
+      var add = (dome + bullet);
+      document.getElementById('demo').innerHTML = add;
+      document.$('.qty').innerHTML = add;
+
+ }
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
 </script>
 
   <%= simple_form_for(@customer) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+       <div class="breadcrumb">
+        <div class="card-header">
+          <h2>CAMERA</h2>
+        </div>
+        <table class="breadcrumb-item table">
+              
+            <tbody>
+              <tr>
+                <td><strong>DOME CAMERA:</strong><input type="number_field" name="" placeholder="QUANTITY..."    
+                 id="dome" onkeyup="addition()"></td>
+                <td><strong>BULLET CAMERA:</strong><input type="number_field" name="" placeholder="QUANTITY..." id="bullet" onkeyup="addition()"></td>
+                <td><strong>TOTAL CAMERA:</strong><span id="demo"></span></td>
+              </tr>
+            </tbody>
 
+        </table>
+
+      </div>
+     
+       <%= render 'item', f: f  %>
+
+
+
+    <button class="open-button" onclick="openForm()">Open Form</button>
+      <div  class="form-popup" id="myForm" style="display: none">
+
+       <%= render 'customer', f: f %> 
+      </div>
    
-    
-      <table class="table">
-        <thead>
-          <tr>
-            <td>ITEM NAME</td>
-            <td>CATEGORY</td>
-            <td>PRICE</td>
-            <td>QUANTITY</td>
-            <td>TOTAL</td>
 
-          </tr>
-      </thead>
-        <tbody>
-          <%= f.fields_for :items do |item| %>
-          <tr class="item-row">
-            <td class="brand-dropdown">CAMERA</td>
-            <td>
-              <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control category_name', :autofocus => true} %>
-              </td>
-            <td><%= item.number_field :price, :label => false, :disabled => true, class: "cctv-price" %></td>
-
-            <td><%= item.input :quantity, :label => false, class: "quantity" %></td>
-            
-            <td class="price_td" style="text-align: right;"><span class="price"><i class="fa fa-inr"></i>0.00</span><span class="subtotal_currency"></span></td>
-            <td><%= item.input :customer_id, :label => false, as: :hidden %></td>
-          </tr>
-              <% end %>
-        </tbody>
-      </table>
-
-
-
-    <table>
-      <thead>
-        <tr>
-          <th> NAME</th>
-          <th>CONTACT</th>
-          <th>EMAIL</th>
-          <th>ADDRESS</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= f.input :name, label: false %></td>
-          <td><%= f.input :contact, label: false %></td>
-          <td><%= f.input :email, label: false %></td>
-          <td><%= f.input :address, label: false %></td>
-        </tr>
-      </tbody>
-    </table>
-
-
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
 
 
 <% end %>
