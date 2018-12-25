@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
-  has_many :items,  inverse_of: :customer, dependent: :destroy
+  has_many :items, dependent: :destroy, inverse_of: :customer
 
   accepts_nested_attributes_for :items, allow_destroy: true
 

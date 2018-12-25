@@ -1,3 +1,4 @@
+
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
@@ -18,8 +19,7 @@ class CustomersController < ApplicationController
   def new
     @customer = Customer.new
     
-      @customer.items.new
-    
+    @customer.items.new
   end
 
   # GET /customers/1/edit
@@ -75,6 +75,6 @@ class CustomersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
       # params.require(:customer).permit(:id, :name, :contact, :email, :address, items_attributes: Item.attribute_names.map(&:to_sym).push(:_destroy))
-      params.require(:customer).permit(:id, :name, :contact, :email, :address, :items_attributes => [:id, :_destroy, :customer_id, :cctv_id, :price, :quantity])
+      params.require(:customer).permit(:name, :contact, :email, :address, :items_attributes => [:id, :_destroy, :customer_id, :cctv_id, :price, :quantity])
     end
 end

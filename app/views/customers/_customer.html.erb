@@ -9,7 +9,7 @@
 </thead>
 <tbody>
   <tr>
-    <td><%= f.input :name, label: false %></td>
+    <td><%= f.text_field :name, label: false, id: "name", onkeyup: "forUpperCase()" %></td>
     <td><%= f.input :contact, label: false %></td>
     <td><%= f.input :email, label: false %></td>
     <td><%= f.input :address, label: false %></td>
