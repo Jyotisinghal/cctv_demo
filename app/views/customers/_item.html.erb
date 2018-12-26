@@ -16,7 +16,7 @@
             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false}, {:class=>'form-control cctv dome-camera-category', :autofocus => true} %>
           </td>
           <td><%= item.number_field :price, :label => false, class: "form-control price", onclick: "colorChange()" %></td>
-          <td><%= item.number_field :quantity, :label => false, class: "qty domeQty form-control" %></td>
+          <td><%= item.number_field :quantity, :label => false, :value => 1, class: "qty domeQty form-control" %></td>
 
           <td><span class="total">00</span></td>
           <%= item.input :customer_id, :label => false, as: :hidden %>
@@ -29,7 +29,7 @@
             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false}, {:class=>'form-control cctv bullet-camera-category', :autofocus => true} %>
           </td>
           <td><%= item.number_field :price, :label => false, class: "form-control price" %></td>
-          <td><%= item.number_field :quantity, :label => false, class: "qty bulletQty form-control" %></td>
+          <td><%= item.number_field :quantity, :label => false, :value => 1, class: "qty bulletQty form-control" %></td>
           <td><span class="total">00</span></td>
           <%= item.input :customer_id, :label => false, as: :hidden %>
         </tr>

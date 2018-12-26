@@ -164,51 +164,6 @@ $(document).ready(function(){
     });
 });
 
-
- jQuery(function() {
-  var grandTotal = 0;
-    return $(document).on("change",".cctv",function(){
-      selectedBrand = $(this).parent('td').prev('td').text();
-      // alert(selectedBrand);
-      selectedCategory = $(this).val();
-      // alert(selectedCategory);
-      selectProducts = cctvsPrice[selectedBrand + ":" + selectedCategory];
-      productPrice = $(this).parent('td').next('td').children('.price');
-      productPrice.empty();
-
-      var price = selectProducts[0].price;
-      $(this).parent('td').next('td').children('.price').val(price);
-      var qty = $(this).parent('td').next('td').next('td').children('.qty').val();
-
-      var place_total = $(this).parent('td').next('td').next('td').next('td').children('.total')
-      
-      if (qty == undefined) {
-        var total = price;
-        place_total.html(total);
-        grandTotal += total;
-      }
-      else{ 
-        var qty = $(this).parent('td').next('td').next('td').children('.qty').val();
-        var total = price * qty;
-        place_total.html(total);
-        grandTotal += total;
-      }
-      $('.grandTotal').html(grandTotal);
-    });
-    
-  });
-
-
-function addition(){
-    var dome = Number(document.getElementById("dome").value);
-    $('.domeQty').val(dome);
-
-    var bullet = Number(document.getElementById("bullet").value);
-    $('.bulletQty').val(bullet);
-    var add = (dome + bullet);
-    document.getElementById('demo').innerHTML = add;
-}
-
 </script>
 
   <%= simple_form_for(@customer) do |f| %>
