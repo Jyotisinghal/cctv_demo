@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "customers";
 /*------------------------------------------------------------------*/ 
 /*	01) BASE
 /*------------------------------------------------------------------*/
@@ -66,7 +67,7 @@ table{
 	border-collapse: collapse;
 	border-spacing: 0px;
 	margin-bottom:15px;
-	color:#999;
+	color:#fff;
 	border:1px solid #eee;
 }
 table tr{
@@ -74,7 +75,7 @@ table tr{
 }
 table th{
 	vertical-align:top;
-	color:#333;
+	color:#fff;
 	background:none;
 	font-size:16px;
 	font-weight:normal;
@@ -126,7 +127,7 @@ pre code { white-space: pre-wrap; }
 textarea{
 	border-radius:0;
 	font-size:13px;
-	color:#333;
+	color:#fff;
 	resize:vertical;
 	font-family:"Open Sans";
 	letter-spacing: 1.2px !important;
@@ -165,7 +166,7 @@ input[type="color"],
 	border-radius:0;
 	font-size:13px;
 	min-width:auto;
-	color:#333;
+	color:#fff;
 	letter-spacing:1.4px;
 	
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */

@@ -177,16 +177,29 @@ $(document).ready(function(){
 
       var price = selectProducts[0].price;
       $(this).parent('td').next('td').children('.price').val(price);
+      var qty = $(this).parent('td').next('td').next('td').children('.qty').val();
 
+      var place_total = $(this).parent('td').next('td').next('td').next('td').children('.total')
+      
+      if (qty == undefined) {
+        var total = price;
+        place_total.html(total);
+      }
+      else{ 
+        var qty = $(this).parent('td').next('td').next('td').children('.qty').val();
+        var total = price * qty;
+        place_total.html(total);
+      }
+      
     });
   });
 
 
 function addition(){
     var dome = Number(document.getElementById("dome").value);
-      $('#customer_items_attributes_0_quantity').val(dome);
+    $('.domeQty').val(dome);
     var bullet = Number(document.getElementById("bullet").value);
-      $('#customer_items_attributes_1_quantity').val(bullet);
+    $('.bulletQty').val(bullet);
     var add = (dome + bullet);
     document.getElementById('demo').innerHTML = add;
 }
@@ -199,7 +212,7 @@ function addition(){
 
   <div class="breadcrumb" style="background-color: #000000;">
     <div class="card-header">
-      <h2>CAMERA</h2>
+      <h2 style="color: white;">CAMERA</h2>
     </div>
     <table class="breadcrumb-item table">
       <tbody>

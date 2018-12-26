@@ -1,0 +1,9 @@
+.price, #customer_items_attributes_1_quantity, #customer_items_attributes_0_quantity{
+    background-color: black;
+    border: black !important;
+    color: white !important;
+  }
+  .cctv{
+  	background-color: black;
+  	color: white !important;
+  }
