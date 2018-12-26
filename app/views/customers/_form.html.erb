@@ -166,6 +166,7 @@ $(document).ready(function(){
 
 
  jQuery(function() {
+  var grandTotal = 0;
     return $(document).on("change",".cctv",function(){
       selectedBrand = $(this).parent('td').prev('td').text();
       // alert(selectedBrand);
@@ -184,20 +185,24 @@ $(document).ready(function(){
       if (qty == undefined) {
         var total = price;
         place_total.html(total);
+        grandTotal += total;
       }
       else{ 
         var qty = $(this).parent('td').next('td').next('td').children('.qty').val();
         var total = price * qty;
         place_total.html(total);
+        grandTotal += total;
       }
-      
+      $('.grandTotal').html(grandTotal);
     });
+    
   });
 
 
 function addition(){
     var dome = Number(document.getElementById("dome").value);
     $('.domeQty').val(dome);
+
     var bullet = Number(document.getElementById("bullet").value);
     $('.bulletQty').val(bullet);
     var add = (dome + bullet);
@@ -217,9 +222,9 @@ function addition(){
     <table class="breadcrumb-item table">
       <tbody>
         <tr>
-          <td><strong>DOME CAMERA:</strong><input type="number_field" name="" placeholder="QUANTITY..." id="dome" onkeyup="addition()"></td>
-          <td><strong>BULLET CAMERA:</strong><input type="number_field" name="" placeholder="QUANTITY..." id="bullet" onkeyup="addition()"></td>
-          <td><strong>TOTAL CAMERA:</strong><span id="demo"></span></td>
+          <td><strong>DOME CAMERA:</strong><input type="number_field" name="" placeholder="  QUANTITY..." id="dome" onkeyup="addition()"></td>
+          <td><strong>BULLET CAMERA:</strong><input type="number_field" name="" placeholder="  QUANTITY..." id="bullet" onkeyup="addition()"></td>
+          <td><strong>TOTAL CAMERA:  </strong><span id="demo"></span></td>
         </tr>
       </tbody>
     </table>

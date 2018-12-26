@@ -16,7 +16,7 @@
             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false}, {:class=>'form-control cctv dome-camera-category', :autofocus => true} %>
           </td>
           <td><%= item.number_field :price, :label => false, class: "form-control price", onclick: "colorChange()" %></td>
-          <td><%= item.input :quantity, :label => false, class: "qty domeQty" %></td>
+          <td><%= item.number_field :quantity, :label => false, class: "qty domeQty" %></td>
 
           <td><span class="total">00</span></td>
           <%= item.input :customer_id, :label => false, as: :hidden %>
@@ -29,7 +29,7 @@
             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false}, {:class=>'form-control cctv bullet-camera-category', :autofocus => true} %>
           </td>
           <td><%= item.number_field :price, :label => false, class: "form-control price" %></td>
-          <td><%= item.input :quantity, :label => false, class: "qty bulletQty" %></td>
+          <td><%= item.number_field :quantity, :label => false, class: "qty bulletQty" %></td>
           <td><span class="total">00</span></td>
           <%= item.input :customer_id, :label => false, as: :hidden %>
         </tr>
@@ -41,7 +41,7 @@
             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv dvr-category', :autofocus => true} %>
             </td>
           <td><%= item.number_field :price, :label => false, class: "form-control price" %></td>
-          <td></td>
+          <td><%= item.number_field :quantity, :label => false, :value => 1, class: "qty" %></td>
           <td><span class="total">00</span></td>
           <%= item.input :customer_id, :label => false, as: :hidden %>
         </tr>
@@ -53,7 +53,7 @@
             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv smps-category', :autofocus => true} %>
             </td>
           <td><%= item.number_field :price, :label => false, class: "form-control price" %></td>
-          <td></td>
+          <td><%= item.number_field :quantity, :label => false, :value => 1, class: "qty" %></td>
           <td><span class="total">00</span></td>
           <%= item.input :customer_id, :label => false, as: :hidden %>
         </tr>
@@ -65,7 +65,7 @@
             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv connector-category', :autofocus => true} %>
           </td>
           <td><%= item.number_field :price, :label => false, class: "form-control price" %></td>
-          <td></td>
+          <td><%= item.number_field :quantity, :label => false, :value => 1, class: "qty" %></td>
           <td><span class="total">00</span></td>
           <%= item.input :customer_id, :label => false, as: :hidden %>
         </tr>
@@ -78,7 +78,7 @@
             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv hdd-category', :autofocus => true} %>
             </td>
           <td><%= item.number_field :price, :label => false, class: "form-control price" %></td>
-          <td></td>
+          <td><%= item.number_field :quantity, :label => false, :value => 1, class: "qty" %></td>
           <td><span class="total">00</span></td>
           <%= item.input :customer_id, :label => false, as: :hidden %>
         </tr>
@@ -90,7 +90,7 @@
             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv wire-category', :autofocus => true} %>
             </td>
           <td><%= item.number_field :price, :label => false, class: "form-control price" %></td>
-          <td></td>
+          <td><%= item.number_field :quantity, :label => false, :value => 1, class: "qty" %></td>
           <td><span class="total">00</span></td>
           <%= item.input :customer_id, :label => false, as: :hidden %>
         </tr>
@@ -102,7 +102,7 @@
             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv installation-category', :autofocus => true} %>
           </td>
           <td><%= item.number_field :price, :label => false, class: "form-control price" %></td>
-          <td></td>
+          <td><%= item.number_field :quantity, :label => false, :value => 1, class: "qty" %></td>
           <td><span class="total">00</span></td>
           <%= item.input :customer_id, :label => false, as: :hidden %>
         </tr>

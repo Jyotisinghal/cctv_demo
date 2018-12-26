@@ -9,10 +9,10 @@
 </thead>
 <tbody>
   <tr>
-    <td><%= f.text_field :name, label: false, id: "name", onkeyup: "forUpperCase()" %></td>
-    <td><%= f.input :contact, label: false %></td>
-    <td><%= f.input :email, label: false %></td>
-    <td><%= f.input :address, label: false %></td>
+    <td><%= f.text_field :name, label: false, id: "name", onkeyup: "forUpperCase()", class: "cctv" %></td>
+    <td><%= f.number_field :contact, label: false, class: "cctv" %></td>
+    <td><%= f.text_field :email, label: false, class: "cctv" %></td>
+    <td><%= f.text_field :address, label: false, class: "cctv" %></td>
   </tr>
 </tbody>
 </table>
