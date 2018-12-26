@@ -1,9 +1,9 @@
-.price, .qty, #customer_items_attributes_1_quantity, #customer_items_attributes_0_quantity{
-    background-color: black;
+.price, .qty {
+    background-color: black !important;
     border: black !important;
     color: white !important;
   }
    #dome, #bullet, .cctv{
-  	background-color: black;
+  	background-color: black !important;
   	color: white !important;
   }

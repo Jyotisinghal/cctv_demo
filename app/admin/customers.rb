@@ -1,10 +1,9 @@
-ActiveAdmin.register Product do
+ActiveAdmin.register Customer do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  menu :priority => 2, :label => 'PRODUCTS'
-  permit_params :name
-# permit_params :list, :of, :attributes, :on, :model
 #
+# permit_params :list, :of, :attributes, :on, :model
+  menu :priority => 4, :label => 'CUSTOMERS'
 # or
 #
 # permit_params do
