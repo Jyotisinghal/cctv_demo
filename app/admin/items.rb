@@ -12,4 +12,14 @@ ActiveAdmin.register Item do
 #   permitted
 # end
 
+
+ index do
+    selectable_column
+    id_column
+    column :customer
+    column :cctv_id
+    column :price
+    column :quantity
+    actions
+  end
 end

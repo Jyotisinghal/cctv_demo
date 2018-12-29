@@ -1,4 +1,5 @@
-//for DVR
+//for DVR auto category with price
+
 function dvr(add) {
     selectedCategory = $('.dvr-dropdown').text();
     selectedBrand = 3;
@@ -10,7 +11,7 @@ function dvr(add) {
     
     for (var i = selectProducts.length - 1; i >= 0; i--) {
       
-      if (selectProducts[i].category >= add ) {
+      if (selectProducts[i].category >= add && add != 0 ) {
 
         var category = selectProducts[i].category;
         var id = selectProducts[i].id
@@ -20,15 +21,18 @@ function dvr(add) {
     productDropdown.append($("<option></option>")
           .attr("value",id)
           .text(category + " CHANNEL")); 
-    // productDropdown.append($("<selected></selected>").attr("value",id).text(category));
     productPrice.val(price);
 
+    var qty = $('#dvr-quantity').val();
+    var price = $('#dvr-price').val();
+    var total = price * qty;
+    $('#dvr-total').html(total);
     
-          
-    // total(price);
 }
 
-//for smps
+
+//for smps auto category with price
+
 function smps(add) {
     selectedCategory = $('.smps-dropdown').text();
     selectedBrand = 4;
@@ -39,7 +43,7 @@ function smps(add) {
     productPrice.empty(); 
     for (var i = selectProducts.length - 1; i >= 0; i--) {
       
-      if (selectProducts[i].category >= add ) {
+      if (selectProducts[i].category >= add && add != 0) {
         var category = selectProducts[i].category;
         var id = selectProducts[i].id
         var price = selectProducts[i].price;
@@ -49,23 +53,51 @@ function smps(add) {
           .attr("value",id)
           .text(category + " CHANNEL")); 
     productPrice.val(price);
+    
+    var qty = $('#smps-quantity').val();
+    var price = $('#smps-price').val();
+    var total = price * qty;
+    $('#smps-total').html(total);
 }
 
-//for connector
+
+
+//for auto quantity connector
+
 function connector(add) {
    
+    selectedCategory = $('.connector-dropdown').text();
+    
+    selectedBrand = 5;
+    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+     
+    productDropdown = $('.connector-category');
+    productDropdown.empty();
+    productPrice = $('#connector-price');
+    productPrice.empty(); 
+
+    var id = selectProducts[0].id;
+    var category = selectProducts[0].category;
+    var price = selectProducts[0].price;
+    productDropdown.append($("<option></option>")
+          .attr("value",id)
+          .text(category)); 
+    productPrice.val(price);
+
     quantity = $('#connector-quantity');
     quantity.empty(); 
     quantity.val(add);
+
+    var total = price * add;
+    $('#connector-total').html(total);
 }
 
-// function total(price) {
-//     var qty =$('.smps-category');
-//     var price = price;
-//     var total = price * qty;
-// }
 
-// Grand Total
+
+
+
+// Grand Total all accessiories
+
 function grandTotal(){
   var subtotal = 0;
     $('.total').each(function(i){

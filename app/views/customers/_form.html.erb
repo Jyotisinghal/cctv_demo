@@ -7,6 +7,7 @@
 $(document).ready(function(){
 
   //for Dome camera
+
   selectedCategory = $('.dome-camera-dropdown').text();  
  
   selectedBrand = 1;
@@ -27,6 +28,8 @@ $(document).ready(function(){
 
 
     //for Bullet camera
+
+
     selectedCategory = $('.bullet-camera-dropdown').text();  
    
     selectedBrand = 2;
@@ -53,25 +56,11 @@ $(document).ready(function(){
 
 
     //for connector
-    selectedCategory = $('.connector-dropdown').text();
-    
-    selectedBrand = 5;
-    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
-     
-    productDropdown = $('.connector-category');
-    productDropdown.empty();
 
-    productDropdown.append($("<option></option>")
-        .attr("value","")
-        .text("Select category")); 
-
-    $.each(selectProducts, function(key, cctv) { 
-    productDropdown.append($("<option></option>")
-        .attr("value",cctv.id)
-        .text(cctv.category)); 
-    });
     
+   
     //FOR HDD
+
     selectedCategory = $('.hdd-dropdown').text();
 
     selectedBrand = 6;
@@ -91,7 +80,9 @@ $(document).ready(function(){
           .text(cctv.category)); 
     });
 
+    
     // for wire
+
     selectedCategory = $('.wire-dropdown').text();
     selectedBrand = 7;
     selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
@@ -104,19 +95,21 @@ $(document).ready(function(){
         .text("Select category")); 
 
     $.each(selectProducts, function(key, cctv) { 
-       // alert('hii');  
-        productDropdown.append($("<option></option>")
+       
+    productDropdown.append($("<option></option>")
           .attr("value",cctv.id)
           .text(cctv.category)); 
     });
 
+   
     //for installation
+
     selectedCategory = $('.installation-dropdown').text();
 
     selectedBrand = 8;
     selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
     
-  productDropdown = $('.installation-category');
+    productDropdown = $('.installation-category');
     productDropdown.empty();
 
     productDropdown.append($("<option></option>")
@@ -125,7 +118,7 @@ $(document).ready(function(){
 
     $.each(selectProducts, function(key, cctv) { 
        
-        productDropdown.append($("<option></option>")
+    productDropdown.append($("<option></option>")
           .attr("value",cctv.id)
           .text(cctv.category)); 
     });

@@ -1,6 +1,6 @@
 
-
 //for addition
+
 function addition(){
     var dome = Number(document.getElementById("dome").value);
     $('.domeQty').val(dome);
@@ -12,8 +12,11 @@ function addition(){
     dvr(add);
     smps(add);
     connector(add);
+    
 }
+
 //for price and total 
+
  jQuery(function() {
     return $(document).on("change",".cctv", function(){
       selectedBrand = $(this).parent('td').prev('td').text();
