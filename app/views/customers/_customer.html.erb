@@ -1,22 +1,31 @@
-<table>
-<thead>
-  <tr>
-    <th> NAME</th>
-    <th>CONTACT</th>
-    <th>EMAIL</th>
-    <th>ADDRESS</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><%= f.text_field :name, label: false, id: "name", onkeyup: "forUpperCase()", class: "cctv form-control" %></td>
-    <td><%= f.number_field :contact, label: false, class: "cctv form-control" %></td>
-    <td><%= f.text_field :email, label: false, class: "cctv form-control" %></td>
-    <td><%= f.text_field :address, label: false, class: "cctv form-control" %></td>
-  </tr>
-</tbody>
-</table>
 
-<div class="form-actions">
-  <%= f.button :submit %>
-</div>
+<style>
+   #customer-address, #customer-email, #customer-contact, #customer-name{
+    border-radius: 10%;
+    border: 1px solid black;
+ }
+</style>
+  <div class="form-group col-md-6">
+    <label>NAME</label>
+    <%= f.text_field :name, label: false, id: "name", onkeyup: "forUpperCase()", class: "form-control", :placeholder => "Name", id: "customer-name" %>
+    
+  </div>
+  <div class="form-group col-md-6">
+    <label>CONTACT</label>
+    <%= f.number_field :contact, label: false, class: "form-control", :placeholder => "Contact", id: "customer-contact" %>
+    
+  </div>
+
+  <div class="form-group">
+    <label>EMAIL</label>
+    <%= f.text_field :email, label: false, class: "form-control", :placeholder => "Email", id: "customer-email" %>
+    
+  </div>
+  <div class="form-group">
+    <label>ADDRESS</label>
+    <%= f.text_field :address, label: false, class: "form-control customer-form", :placeholder => "address", id: "customer-address" %>
+    
+  </div>
+
+  <%= f.submit "REQUEST", class: "btn btn-dark", style: "margin-left: 40%;" %>
+ 
