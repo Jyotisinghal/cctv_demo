@@ -18,7 +18,7 @@ class CustomersController < ApplicationController
   # GET /customers/new
   def new
     @customer = Customer.new
-    
+   
     @customer.items.new
   end
 

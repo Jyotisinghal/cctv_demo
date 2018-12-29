@@ -47,43 +47,10 @@ $(document).ready(function(){
 
 
     //for dvr
-    selectedCategory = $('.dvr-dropdown').text();
-  
-    selectedBrand = 3;
-    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
-    
-    productDropdown = $('.dvr-category');
-    productDropdown.empty();
-
-    productDropdown.append($("<option></option>")
-        .attr("value","")
-        .text("Select category")); 
-
-    $.each(selectProducts, function(key, cctv) { 
-       // alert('hii');  
-        productDropdown.append($("<option></option>")
-          .attr("value",cctv.id)
-          .text(cctv.category)); 
-    });
+   
 
     //for smps
-    selectedCategory = $('.smps-dropdown').text();
-    
-    selectedBrand = 4;
-    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
 
-    productDropdown = $('.smps-category');
-    productDropdown.empty();
-
-    productDropdown.append($("<option></option>")
-       .attr("value","")
-       .text("Select category")); 
-
-    $.each(selectProducts, function(key, cctv) {  
-        productDropdown.append($("<option></option>")
-          .attr("value",cctv.id)
-          .text(cctv.category)); 
-    });
 
     //for connector
     selectedCategory = $('.connector-dropdown').text();
@@ -165,7 +132,7 @@ $(document).ready(function(){
 });
 
 </script>
-
+  
   <%= simple_form_for(@customer) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>

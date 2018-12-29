@@ -1,25 +1,18 @@
-//for grand total
-function grandTotal(){
-  var subtotal = 0;
-    $('.total').each(function(i){
-        var price = $(this).html();
-        if (!isNaN(price)) subtotal += Number(price);
-    });
-    subtotal = subtotal.toFixed(2);
-    $('.grandTotal').html(subtotal);
-}
+
 
 //for addition
 function addition(){
     var dome = Number(document.getElementById("dome").value);
     $('.domeQty').val(dome);
-
     var bullet = Number(document.getElementById("bullet").value);
     $('.bulletQty').val(bullet);
     var add = (dome + bullet);
-    document.getElementById('demo').innerHTML = add;
-}
 
+    document.getElementById('demo').innerHTML = add;
+    dvr(add);
+    smps(add);
+    connector(add);
+}
 //for price and total 
  jQuery(function() {
     return $(document).on("change",".cctv", function(){
