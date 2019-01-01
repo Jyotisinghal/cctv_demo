@@ -21,12 +21,13 @@ class CustomersController < ApplicationController
    
     @customer.items.new
   end
-
+  
   # GET /customers/1/edit
   def edit
     @customer.items.new
   end
 
+  
   # POST /customers
   # POST /customers.json
   def create
@@ -34,7 +35,8 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+        ConfirmationMailer.send_welcome_mail(@customer).deliver!
+        format.html { redirect_to @customer, notice: 'YOUR REQUEST IS CONFIRMED...!' }
         format.json { render :show, status: :created, location: @customer }
       else
         format.html { render :new }

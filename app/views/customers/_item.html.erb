@@ -43,7 +43,7 @@
         <tr class="item-row">
           <td class="dvr-dropdown">DVR</td>
           <td>
-            <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false}, {:class=>'form-control cctv dvr-category'} %>
+            <%= item.collection_select :cctv_id,  Cctv.all, :id, :category, {include_blank: "Select Category", label: false}, {:class=>'form-control cctv dvr-category', :readonly => true } %>
             </td>
           <td><%= item.number_field :price, :label => false, :readonly => true, class: "form-control price", id: "dvr-price" %></td>
           <td><%= item.number_field :quantity, :label => false, :value => 1, :readonly => true, class: "qty form-control", id: "dvr-quantity" %></td>
@@ -57,7 +57,7 @@
         <tr class="item-row">
           <td class="smps-dropdown">SMPS</td>
           <td>
-             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category" , label: false}, {:class=>'form-control cctv smps-category'} %>
+             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category" , label: false , :readonly => true }, {:class=>'form-control cctv smps-category' } %>
             </td>
           <td><%= item.number_field :price, :label => false, :readonly => true, class: "form-control price", id: "smps-price" %></td>
           <td><%= item.number_field :quantity, :label => false, :value => 1, :readonly => true, class: "qty form-control", id: "smps-quantity" %></td>
@@ -71,7 +71,7 @@
         <tr class="item-row">
           <td class="connector-dropdown">CONNECTOR</td>
           <td>
-            <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv connector-category', :autofocus => true} %>
+            <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv connector-category', :autofocus => true , :readonly => true }  %>
           </td>
           <td><%= item.number_field :price, :label => false, :readonly => true, class: "form-control price", id: "connector-price" %></td>
           <td><%= item.number_field :quantity, :label => false, :value => 1, :readonly => true, class: "qty form-control", id: "connector-quantity" %></td>

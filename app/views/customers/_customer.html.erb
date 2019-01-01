@@ -1,8 +1,9 @@
 
 <style>
    #customer-address, #customer-email, #customer-contact, #customer-name{
-    border-radius: 10%;
+    border-radius: 30%;
     border: 1px solid black;
+    color: black;
  }
 </style>
   <div class="form-group col-md-6">
@@ -26,6 +27,7 @@
     <%= f.text_field :address, label: false, class: "form-control customer-form", :placeholder => "address", id: "customer-address" %>
     
   </div>
+
 
   <%= f.submit "REQUEST", class: "btn btn-dark", style: "margin-left: 40%;" %>
  
