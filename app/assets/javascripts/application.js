@@ -8,7 +8,7 @@
 //= require_tree .
 
 function forUpperCase() {
-    var x = document.getElementById('name');
+    var x = document.getElementById('customer-name');
     x.value = x.value.toUpperCase();
 
 }
