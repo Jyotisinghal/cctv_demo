@@ -1,10 +1,10 @@
-.price, .qty {
+.price, .qty, .product-name {
     background-color: black !important;
     border: black !important;
     color: white !important;
   }
-   #dome, #bullet, .cctv{
-  	background-color: black !important;
+   .cctv, .dvr-category, .connector-category{
+  	background-color: black;
   	color: white !important;
   }
 

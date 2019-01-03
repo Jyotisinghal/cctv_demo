@@ -1,3 +1,4 @@
+
 <table class="table">
     <thead>
       <tr>
@@ -9,10 +10,11 @@
       </tr>
     </thead>
     <tbody>  
-      
+    
       <%= f.fields_for :items do |item| %>
+    
         <tr class="item-row">
-          <td class="dome-camera-dropdown">DOME CAMERA</td>
+          <td><%= item.text_field :product_name, :value => "DOME CAMERA", label: false, :readonly => true, class: "dome-camera-dropdown product-name form-control" %></td>
           <td>
             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false}, {:class=>'form-control cctv dome-camera-category', :autofocus => true} %>
           </td>
@@ -27,9 +29,9 @@
      
       <%= f.fields_for :items do |item| %>
         <tr class="item-row">
-          <td class="bullet-camera-dropdown">BULLET CAMERA</td>
+          <td><%= item.text_field :product_name, :value => "BULLET CAMERA", label: false, :readonly => true, class: "bullet-camera-dropdown product-name form-control" %></td>
           <td>
-            <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {label: false}, {:class=>'form-control cctv bullet-camera-category', :autofocus => true} %>
+            <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false}, {:class=>'form-control cctv bullet-camera-category'} %>
           </td>
           <td><%= item.number_field :price, :label => false, :readonly => true, class: "form-control price" %></td>
           <td><%= item.number_field :quantity, :label => false, :value => 1, :readonly => true, class: "qty bulletQty form-control" %></td>
@@ -41,9 +43,9 @@
 
       <%= f.fields_for :items do |item| %>
         <tr class="item-row">
-          <td class="dvr-dropdown">DVR</td>
+          <td><%= item.text_field :product_name, :value => "DVR", label: false, :readonly => true, class: "dvr-dropdown product-name form-control" %></td>
           <td>
-            <%= item.collection_select :cctv_id,  Cctv.all, :id, :category, {include_blank: "Select Category", label: false}, {:class=>'form-control cctv dvr-category', :readonly => true } %>
+            <%= item.collection_select :cctv_id,  Cctv.all, :id, :category, {include_blank: "Select Category", label: false}, {:class=>'form-control cctv dvr-category'} %>
             </td>
           <td><%= item.number_field :price, :label => false, :readonly => true, class: "form-control price", id: "dvr-price" %></td>
           <td><%= item.number_field :quantity, :label => false, :value => 1, :readonly => true, class: "qty form-control", id: "dvr-quantity" %></td>
@@ -55,9 +57,9 @@
 
       <%= f.fields_for :items do |item| %>
         <tr class="item-row">
-          <td class="smps-dropdown">SMPS</td>
+          <td><%= item.text_field :product_name, :value => "SMPS", label: false, :readonly => true, class: "smps-dropdown product-name form-control" %></td>
           <td>
-             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category" , label: false , :readonly => true }, {:class=>'form-control cctv smps-category' } %>
+             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category" , label: false}, {:class=>'form-control cctv smps-category' } %>
             </td>
           <td><%= item.number_field :price, :label => false, :readonly => true, class: "form-control price", id: "smps-price" %></td>
           <td><%= item.number_field :quantity, :label => false, :value => 1, :readonly => true, class: "qty form-control", id: "smps-quantity" %></td>
@@ -69,9 +71,9 @@
      
       <%= f.fields_for :items do |item| %>
         <tr class="item-row">
-          <td class="connector-dropdown">CONNECTOR</td>
+          <td><%= item.text_field :product_name, :value => "CONNECTOR", label: false, :readonly => true, class: "connector-dropdown product-name form-control" %></td>
           <td>
-            <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv connector-category', :autofocus => true , :readonly => true }  %>
+            <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv connector-category' }  %>
           </td>
           <td><%= item.number_field :price, :label => false, :readonly => true, class: "form-control price", id: "connector-price" %></td>
           <td><%= item.number_field :quantity, :label => false, :value => 1, :readonly => true, class: "qty form-control", id: "connector-quantity" %></td>
@@ -83,9 +85,9 @@
     
       <%= f.fields_for :items do |item| %>
         <tr class="item-row">
-          <td class="hdd-dropdown">HDD</td>
+          <td><%= item.text_field :product_name, :value => "HDD", label: false, :readonly => true, class: "hdd-dropdown product-name form-control" %></td>
           <td>
-            <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv hdd-category', :autofocus => true} %>
+            <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv hdd-category'} %>
             </td>
           <td><%= item.number_field :price, :label => false, :readonly => true, class: "form-control price" %></td>
           <td><%= item.number_field :quantity, :label => false, :value => 1, :readonly => true, class: "qty form-control" %></td>
@@ -97,9 +99,9 @@
 
       <%= f.fields_for :items do |item| %>
         <tr class="item-row">
-          <td class="wire-dropdown">WIRE</td>
+          <td><%= item.text_field :product_name, :value => "WIRE", label: false, :readonly => true, class: "wire-dropdown product-name form-control" %></td>
           <td>
-            <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv wire-category', :autofocus => true} %>
+            <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv wire-category'} %>
             </td>
           <td><%= item.number_field :price, :label => false, :readonly => true, class: "form-control price" %></td>
           <td><%= item.number_field :quantity, :label => false, :value => 1, :readonly => true, class: "qty form-control" %></td>
@@ -111,9 +113,9 @@
 
       <%= f.fields_for :items do |item| %>
         <tr class="item-row">
-          <td class="installation-dropdown">INSTALLATION</td>
+          <td><%= item.text_field :product_name, :value => "INSTALLATION", label: false, :readonly => true, class: "installation-dropdown product-name form-control" %></td>
           <td>
-            <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv installation-category', :autofocus => true} %>
+            <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false},{:class=>'form-control cctv installation-category'} %>
           </td>
           <td><%= item.number_field :price, :label => false, :readonly => true, class: "form-control price" %></td>
           <td><%= item.number_field :quantity, :label => false, :value => 1, :readonly => true, class: "qty form-control" %></td>

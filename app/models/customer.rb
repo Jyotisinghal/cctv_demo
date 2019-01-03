@@ -4,4 +4,6 @@ class Customer < ApplicationRecord
   accepts_nested_attributes_for :items, allow_destroy: true
 
   validates_associated :items
+
+
 end

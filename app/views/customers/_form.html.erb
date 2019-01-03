@@ -4,11 +4,12 @@
   var cctvs = <%= Cctv.all.group_by{|x| [x.product.name, x.product_id].join(":") }.to_json.html_safe %>;
   var cctvsPrice = <%= Cctv.all.group_by{|x| [x.product.name, x.id].join(":") }.to_json.html_safe %>;
 
+
 $(document).ready(function(){
 
   //for Dome camera
-
-  selectedCategory = $('.dome-camera-dropdown').text();  
+  selectedCategory = $('.dome-camera-dropdown').val();
+ 
  
   selectedBrand = 1;
   selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
@@ -16,21 +17,11 @@ $(document).ready(function(){
   productDropdown = $('.dome-camera-category');
   productDropdown.empty();
 
-  productDropdown.append($("<option></option>")
-    .attr("value","")
-    .text("Select category")); 
-
-  $.each(selectProducts, function(key, cctv) {  
-      productDropdown.append($("<option></option>")
-        .attr("value",cctv.id)
-        .text(cctv.category)); 
-  });
-
+  slectTag(productDropdown);
+  
 
     //for Bullet camera
-
-
-    selectedCategory = $('.bullet-camera-dropdown').text();  
+    selectedCategory = $('.bullet-camera-dropdown').val();  
    
     selectedBrand = 2;
     selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
@@ -38,30 +29,11 @@ $(document).ready(function(){
     productDropdown = $('.bullet-camera-category');
     productDropdown.empty();
 
-    productDropdown.append($("<option></option>")
-      .attr("value","")
-      .text("Select category")); 
-
-    $.each(selectProducts, function(key, cctv) {  
-        productDropdown.append($("<option></option>")
-          .attr("value",cctv.id)
-          .text(cctv.category)); 
-    });
-
-
-    //for dvr
+    slectTag(productDropdown);
    
 
-    //for smps
-
-
-    //for connector
-
-    
-   
     //FOR HDD
-
-    selectedCategory = $('.hdd-dropdown').text();
+    selectedCategory = $('.hdd-dropdown').val();
 
     selectedBrand = 6;
     selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
@@ -69,42 +41,22 @@ $(document).ready(function(){
     productDropdown = $('.hdd-category');
     productDropdown.empty();
 
-    productDropdown.append($("<option></option>")
-       .attr("value","")
-       .text("Select category")); 
+    slectTag(productDropdown);
+   
 
-    $.each(selectProducts, function(key, cctv) { 
-        
-    productDropdown.append($("<option></option>")
-          .attr("value",cctv.id)
-          .text(cctv.category)); 
-    });
-
-    
     // for wire
-
-    selectedCategory = $('.wire-dropdown').text();
+    selectedCategory = $('.wire-dropdown').val();
     selectedBrand = 7;
     selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
 
     productDropdown = $('.wire-category');
     productDropdown.empty();
 
-    productDropdown.append($("<option></option>")
-        .attr("value","")
-        .text("Select category")); 
-
-    $.each(selectProducts, function(key, cctv) { 
-       
-    productDropdown.append($("<option></option>")
-          .attr("value",cctv.id)
-          .text(cctv.category)); 
-    });
-
+    slectTag(productDropdown);
    
-    //for installation
 
-    selectedCategory = $('.installation-dropdown').text();
+    //for installation
+    selectedCategory = $('.installation-dropdown').val();
 
     selectedBrand = 8;
     selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
@@ -112,16 +64,8 @@ $(document).ready(function(){
     productDropdown = $('.installation-category');
     productDropdown.empty();
 
-    productDropdown.append($("<option></option>")
-        .attr("value","")
-        .text("Select category")); 
-
-    $.each(selectProducts, function(key, cctv) { 
-       
-    productDropdown.append($("<option></option>")
-          .attr("value",cctv.id)
-          .text(cctv.category)); 
-    });
+    slectTag(productDropdown);
+  
 });
 
 </script>
@@ -137,8 +81,8 @@ $(document).ready(function(){
     <table class="breadcrumb-item table">
       <tbody>
         <tr>
-          <td><strong>DOME CAMERA:</strong><input type="number_field" name="" class="form-control" placeholder="  QUANTITY..." id="dome" onkeyup="addition()"></td>
-          <td><strong>BULLET CAMERA:</strong><input type="number_field" name="" class="form-control" placeholder="  QUANTITY..." id="bullet" onkeyup="addition()"></td>
+          <td><strong>DOME CAMERA:</strong><input type="number_field" name="" class="form-control cctv" placeholder="  QUANTITY..." id="dome" onkeyup="addition()"></td>
+          <td><strong>BULLET CAMERA:</strong><input type="number_field" name="" class="form-control cctv" placeholder="  QUANTITY..." id="bullet" onkeyup="addition()"></td>
           <td><strong>TOTAL CAMERA:  </strong><br><span id="demo" style="font-size: 24px;"></span></td>
         </tr>
       </tbody>
@@ -146,9 +90,9 @@ $(document).ready(function(){
   </div> 
   
   <%= render 'item', f: f %> 
-<a class="btn btn-primary" data-toggle="modal" data-target="#customer-model", style="color: white;"><i class="fa fa-hand-o-up"></i> PROCEED</a>
+<a class="btn btn-primary" data-toggle="modal" data-target="#customer-model" style="color: white;" onclick = "hiii()" id="customerModel" ><i class="fa fa-hand-o-up"></i> PROCEED</a>
 <div class="modal fade" id="customer-model" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" style="background-color: rgba(93, 103, 106, 0.31)">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg" id= "customermm">
       <div class="modal-content" style="width: 650px;margin: 238px 0 0 6% !important;">
         <div class="container-fluid invoice_wrapper" style="margin:5px">
           <%= render 'customer', f: f %> 

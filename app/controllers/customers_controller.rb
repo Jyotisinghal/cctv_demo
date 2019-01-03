@@ -39,7 +39,7 @@ class CustomersController < ApplicationController
         format.html { redirect_to @customer, notice: 'YOUR REQUEST IS CONFIRMED...!' }
         format.json { render :show, status: :created, location: @customer }
       else
-        format.html { render :new }
+        format.html { redirect_to new_customer_path  }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
@@ -78,6 +78,6 @@ class CustomersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
       # params.require(:customer).permit(:id, :name, :contact, :email, :address, items_attributes: Item.attribute_names.map(&:to_sym).push(:_destroy))
-      params.require(:customer).permit(:name, :contact, :email, :address, :items_attributes => [:id, :_destroy, :customer_id, :cctv_id, :price, :quantity])
+      params.require(:customer).permit(:name, :contact, :email, :address, :items_attributes => [:id, :_destroy, :product_name, :customer_id, :cctv_id, :price, :quantity])
     end
 end

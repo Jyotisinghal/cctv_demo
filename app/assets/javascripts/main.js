@@ -12,14 +12,26 @@ function addition(){
     dvr(add);
     smps(add);
     connector(add);
-    
+    grandTotal();
+}
+function slectTag(productDropdown) {
+    productDropdown.append($("<option></option>")
+    .attr("value","")
+    .text("Select category")); 
+    $.each(selectProducts, function(key, cctv) { 
+       
+        productDropdown.append($("<option></option>")
+            .attr("value",cctv.id)
+            .text(cctv.category)); 
+    });
+
 }
 
 //for price and total 
 
  jQuery(function() {
     return $(document).on("change",".cctv", function(){
-      selectedBrand = $(this).parent('td').prev('td').text();
+      selectedBrand = $(this).parent('td').prev('td').children('.product-name').val();
       // alert(selectedBrand);
       selectedCategory = $(this).val();
       // alert(selectedCategory);
@@ -35,7 +47,44 @@ function addition(){
       place_total.html(total);
       
       grandTotal();
+
+     
  
     });
     
   });
+
+
+
+    function validation(){
+    var allValues = document.getElementsByClassName('cctv');
+    
+    for (let i = 0; i < allValues.length; i++ ) {
+        var valuefor = allValues[i].value;
+        if (valuefor === "") {
+            allValues[i].style.backgroundColor = "red";
+            document.getElementById('customermm').style.visibility = 'hidden';
+            
+            
+    
+
+        }
+        else{
+            allValues[i].style.backgroundColor = "black";
+            document.getElementById('customermm').style.visibility = 'visible';
+            
+        }
+        
+        
+
+    }
+    
+  } 
+
+
+  
+  function hiii() {
+      validation(); 
+      alert("hiii");
+  }
+  

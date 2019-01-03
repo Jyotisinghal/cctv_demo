@@ -17,7 +17,8 @@ ActiveAdmin.register Item do
     selectable_column
     id_column
     column :customer
-    column :cctv_id
+    column :product_name
+    column :cctv
     column :price
     column :quantity
     actions

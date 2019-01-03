@@ -1,7 +1,7 @@
 //for DVR auto category with price
 
 function dvr(add) {
-    selectedCategory = $('.dvr-dropdown').text();
+    selectedCategory = $('.dvr-dropdown').val();
     selectedBrand = 3;
     selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
     productDropdown = $('.dvr-category');
@@ -34,7 +34,7 @@ function dvr(add) {
 //for smps auto category with price
 
 function smps(add) {
-    selectedCategory = $('.smps-dropdown').text();
+    selectedCategory = $('.smps-dropdown').val();
     selectedBrand = 4;
     selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
     productDropdown = $('.smps-category');
@@ -66,7 +66,7 @@ function smps(add) {
 
 function connector(add) {
    
-    selectedCategory = $('.connector-dropdown').text();
+    selectedCategory = $('.connector-dropdown').val();
     
     selectedBrand = 5;
     selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
@@ -94,8 +94,6 @@ function connector(add) {
 
 
 
-
-
 // Grand Total all accessiories
 
 function grandTotal(){
@@ -107,3 +105,4 @@ function grandTotal(){
     subtotal = subtotal.toFixed(2);
     $('.grandTotal').html(subtotal);
 }
+
