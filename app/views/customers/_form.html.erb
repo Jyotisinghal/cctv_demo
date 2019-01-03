@@ -6,66 +6,7 @@
 
 
 $(document).ready(function(){
-
-  //for Dome camera
-  selectedCategory = $('.dome-camera-dropdown').val();
- 
- 
-  selectedBrand = 1;
-  selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
-
-  productDropdown = $('.dome-camera-category');
-  productDropdown.empty();
-
-  slectTag(productDropdown);
-  
-
-    //for Bullet camera
-    selectedCategory = $('.bullet-camera-dropdown').val();  
-   
-    selectedBrand = 2;
-    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
-
-    productDropdown = $('.bullet-camera-category');
-    productDropdown.empty();
-
-    slectTag(productDropdown);
-   
-
-    //FOR HDD
-    selectedCategory = $('.hdd-dropdown').val();
-
-    selectedBrand = 6;
-    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
- 
-    productDropdown = $('.hdd-category');
-    productDropdown.empty();
-
-    slectTag(productDropdown);
-   
-
-    // for wire
-    selectedCategory = $('.wire-dropdown').val();
-    selectedBrand = 7;
-    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
-
-    productDropdown = $('.wire-category');
-    productDropdown.empty();
-
-    slectTag(productDropdown);
-   
-
-    //for installation
-    selectedCategory = $('.installation-dropdown').val();
-
-    selectedBrand = 8;
-    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
-    
-    productDropdown = $('.installation-category');
-    productDropdown.empty();
-
-    slectTag(productDropdown);
-  
+  productValues();
 });
 
 </script>
@@ -90,7 +31,7 @@ $(document).ready(function(){
   </div> 
   
   <%= render 'item', f: f %> 
-<a class="btn btn-primary" data-toggle="modal" data-target="#customer-model" style="color: white;" onclick = "hiii()" id="customerModel" ><i class="fa fa-hand-o-up"></i> PROCEED</a>
+<a class="btn btn-primary" data-toggle="modal" data-target="#customer-model" style="color: white;" onclick = "validation()" id="customerModel" ><i class="fa fa-hand-o-up"></i> PROCEED</a>
 <div class="modal fade" id="customer-model" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" style="background-color: rgba(93, 103, 106, 0.31)">
     <div class="modal-dialog modal-lg" id= "customermm">
       <div class="modal-content" style="width: 650px;margin: 238px 0 0 6% !important;">

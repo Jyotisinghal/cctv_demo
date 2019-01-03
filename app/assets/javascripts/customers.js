@@ -9,20 +9,9 @@ function dvr(add) {
     productPrice = $('#dvr-price');
     productPrice.empty();
     
-    for (var i = selectProducts.length - 1; i >= 0; i--) {
-      
-      if (selectProducts[i].category >= add && add != 0 ) {
-
-        var category = selectProducts[i].category;
-        var id = selectProducts[i].id
-        var price = selectProducts[i].price;
-      }
-    }
-    productDropdown.append($("<option></option>")
-          .attr("value",id)
-          .text(category + " CHANNEL")); 
-    productPrice.val(price);
-
+//CALLING
+    selecttag(productDropdown, add);
+    $('.dvr-category').css("background-color","black");
     var qty = $('#dvr-quantity').val();
     var price = $('#dvr-price').val();
     var total = price * qty;
@@ -30,9 +19,7 @@ function dvr(add) {
     
 }
 
-
 //for smps auto category with price
-
 function smps(add) {
     selectedCategory = $('.smps-dropdown').val();
     selectedBrand = 4;
@@ -41,19 +28,10 @@ function smps(add) {
     productDropdown.empty();
     productPrice = $('#smps-price');
     productPrice.empty(); 
-    for (var i = selectProducts.length - 1; i >= 0; i--) {
-      
-      if (selectProducts[i].category >= add && add != 0) {
-        var category = selectProducts[i].category;
-        var id = selectProducts[i].id
-        var price = selectProducts[i].price;
-      }
-    }
-    productDropdown.append($("<option></option>")
-          .attr("value",id)
-          .text(category + " CHANNEL")); 
-    productPrice.val(price);
-    
+
+//CALLING
+    selecttag(productDropdown, add);
+    $('.smps-category').css("background-color","black");
     var qty = $('#smps-quantity').val();
     var price = $('#smps-price').val();
     var total = price * qty;
@@ -84,6 +62,8 @@ function connector(add) {
           .text(category)); 
     productPrice.val(price);
 
+    $('.connector-category').css("background-color","black");
+
     quantity = $('#connector-quantity');
     quantity.empty(); 
     quantity.val(add);
@@ -92,6 +72,22 @@ function connector(add) {
     $('#connector-total').html(total);
 }
 
+
+function selecttag(productDropdown, add) {
+    
+    for (var i = selectProducts.length - 1; i >= 0; i--) {
+    
+      if (selectProducts[i].category >= add && add != 0 ) {
+        var category = selectProducts[i].category;
+        var id = selectProducts[i].id
+        var price = selectProducts[i].price;
+      }
+    }
+    productDropdown.append($("<option></option>")
+          .attr("value",id)
+          .text(category + " CHANNEL")); 
+    productPrice.val(price);
+}
 
 
 // Grand Total all accessiories
@@ -106,3 +102,25 @@ function grandTotal(){
     $('.grandTotal').html(subtotal);
 }
 
+// for dropdown
+function productValues(){
+
+  var productValues = [1,2,6,7,8];
+  for (var i = 0; i < productValues.length; i++ ) {
+    var categoryId = productValues[i];
+    selectedCategory = $('.'+categoryId).val();
+    selectedBrand = categoryId;
+    selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
+    productDropdown = $('.1'+categoryId);
+    productDropdown.empty();
+    productDropdown.append($("<option></option>")
+      .attr("value","")
+      .text("Select category")); 
+    $.each(selectProducts, function(key, cctv) { 
+      productDropdown.append($("<option></option>")
+        .attr("value",cctv.id)
+        .text(cctv.category)); 
+    });
+  }
+
+}
