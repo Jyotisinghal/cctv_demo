@@ -11,8 +11,8 @@
     </thead>
     <tbody>  
     
-      <%= f.fields_for :items do |item| %>
-    
+      <%= f.fields_for :dome_cameras do |item| %>
+      
         <tr class="item-row">
           <td><%= item.text_field :product_name, :value => "DOME CAMERA", label: false, :readonly => true, class: "1 product-name form-control" %></td>
           <td>
@@ -27,7 +27,7 @@
       <% end %>
      
      
-      <%= f.fields_for :items do |item| %>
+      <%= f.fields_for :bullet_cameras do |item| %>
         <tr class="item-row">
           <td><%= item.text_field :product_name, :value => "BULLET CAMERA", label: false, :readonly => true, class: "2 product-name form-control" %></td>
           <td>
@@ -41,7 +41,7 @@
       <% end %>
       
 
-      <%= f.fields_for :items do |item| %>
+      <%= f.fields_for :dvrs do |item| %>
         <tr class="item-row">
           <td><%= item.text_field :product_name, :value => "DVR", label: false, :readonly => true, class: "dvr-dropdown product-name form-control" %></td>
           <td>
@@ -55,7 +55,7 @@
       <% end %>
       
 
-      <%= f.fields_for :items do |item| %>
+      <%= f.fields_for :smpss do |item| %>
         <tr class="item-row">
           <td><%= item.text_field :product_name, :value => "SMPS", label: false, :readonly => true, class: "smps-dropdown product-name form-control" %></td>
           <td>
@@ -69,7 +69,7 @@
       <% end %>
      
      
-      <%= f.fields_for :items do |item| %>
+      <%= f.fields_for :connectors do |item| %>
         <tr class="item-row">
           <td><%= item.text_field :product_name, :value => "CONNECTOR", label: false, :readonly => true, class: "connector-dropdown product-name form-control" %></td>
           <td>
@@ -83,7 +83,7 @@
       <% end %>
 
     
-      <%= f.fields_for :items do |item| %>
+      <%= f.fields_for :hdds do |item| %>
         <tr class="item-row">
           <td><%= item.text_field :product_name, :value => "HDD", label: false, :readonly => true, class: "6 product-name form-control" %></td>
           <td>
@@ -97,7 +97,7 @@
       <% end %>
      
 
-      <%= f.fields_for :items do |item| %>
+      <%= f.fields_for :wires do |item| %>
         <tr class="item-row">
           <td><%= item.text_field :product_name, :value => "WIRE", label: false, :readonly => true, class: "7 product-name form-control" %></td>
           <td>
@@ -111,7 +111,7 @@
       <% end %>
     
 
-      <%= f.fields_for :items do |item| %>
+      <%= f.fields_for :installations do |item| %>
         <tr class="item-row">
           <td><%= item.text_field :product_name, :value => "INSTALLATION", label: false, :readonly => true, class: "8 product-name form-control" %></td>
           <td>

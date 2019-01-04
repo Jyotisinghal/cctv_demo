@@ -47,23 +47,23 @@ function addition(){
 
 
 
-function validation(){
-  var allValues = document.getElementsByClassName('cctv');
-  
-  for (let i = 0; i < allValues.length; i++ ) {
-    var valuefor = allValues[i].value;
-    if (valuefor === "") {
-       
-      allValues[i].style.backgroundColor = "red";
+  // function validation(){
+  //   var allValues = document.getElementsByClassName('cctv');
     
-      document.getElementById('customermm').style.visibility = 'hidden';
+  //   for (let i = 0; i < allValues.length; i++ ) {
+  //     var valuefor = allValues[i].value;
+  //     if (valuefor === "") {
+         
+  //       allValues[i].style.backgroundColor = "red";
       
-    }
-    else{
-      allValues[i].style.backgroundColor = "black";
-      document.getElementById('customermm').style.visibility = 'visible';
+  //       document.getElementById('customermm').style.visibility = 'hidden';
         
-    }
-  }
-} 
+  //     }
+  //     else{
+  //       allValues[i].style.backgroundColor = "black";
+  //       document.getElementById('customermm').style.visibility = 'visible';
+          
+  //     }
+  //   }
+  // } 
 

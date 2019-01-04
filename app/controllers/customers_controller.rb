@@ -17,14 +17,21 @@ class CustomersController < ApplicationController
 
   # GET /customers/new
   def new
-    @customer = Customer.new
    
-    @customer.items.new
+    @customer = Customer.new
+    @customer.dome_cameras.new
+    @customer.bullet_cameras.new
+    @customer.dvrs.new
+    @customer.smpss.new
+    @customer.connectors.new
+    @customer.hdds.new
+    @customer.wires.new
+    @customer.installations.new
   end
   
   # GET /customers/1/edit
   def edit
-    @customer.items.new
+   
   end
 
   
@@ -39,7 +46,7 @@ class CustomersController < ApplicationController
         format.html { redirect_to @customer, notice: 'YOUR REQUEST IS CONFIRMED...!' }
         format.json { render :show, status: :created, location: @customer }
       else
-        format.html { redirect_to new_customer_path  }
+        format.html { render :new  }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
@@ -77,7 +84,10 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
+  
       # params.require(:customer).permit(:id, :name, :contact, :email, :address, items_attributes: Item.attribute_names.map(&:to_sym).push(:_destroy))
-      params.require(:customer).permit(:name, :contact, :email, :address, :items_attributes => [:id, :_destroy, :product_name, :customer_id, :cctv_id, :price, :quantity])
+      params.require(:customer).permit(:id, :name, :contact, :email, :address, :dome_cameras_attributes => [:id, :_destroy, :product_name, :customer_id, :cctv_id, :price, :quantity], :bullet_cameras_attributes => [:id, :_destroy, :product_name, :customer_id, :cctv_id, :price, :quantity], :dvrs_attributes => [:id, :_destroy, :product_name, :customer_id, :cctv_id, :price, :quantity],:smpss_attributes => [:id, :_destroy, :product_name, :customer_id, :cctv_id, :price, :quantity], :connectors_attributes => [:id, :_destroy, :product_name, :customer_id, :cctv_id, :price, :quantity], :hdds_attributes => [:id, :_destroy, :product_name, :customer_id, :cctv_id, :price, :quantity], :wires_attributes => [:id, :_destroy, :product_name, :customer_id, :cctv_id, :price, :quantity], :installations_attributes => [:id, :_destroy, :product_name, :customer_id, :cctv_id, :price, :quantity])
+      # params.require(:customer).permit(:name, :contact, :email, :address, :dome_cameras_attributes => [:id, :_destroy, :product_name, :customer_id, :cctv_id, :price, :quantity])
+      
     end
 end
