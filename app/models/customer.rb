@@ -20,12 +20,13 @@ class Customer < ApplicationRecord
   accepts_nested_attributes_for :wires, allow_destroy: true
   accepts_nested_attributes_for :installations, allow_destroy: true
 
-  # validates_associated :items
+  validates_associated :items
 
   validates :name, presence: true
   validates :contact, presence: true
   validates :email, presence: true
   validates :address, presence: true
+
 
 
 end

@@ -11,6 +11,7 @@ function dvr(add) {
     
 //CALLING
     selecttag(productDropdown, add);
+    
     $('.dvr-category').css("background-color","black");
     var qty = $('#dvr-quantity').val();
     var price = $('#dvr-price').val();

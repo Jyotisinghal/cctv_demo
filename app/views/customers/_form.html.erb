@@ -1,19 +1,15 @@
 
-<script>
+<%= form_for(@customer) do |f| %>
+  <div style="color: white">
+    <% if @customer.errors.any? %>
+    <ul>
+      <% @customer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  </div>
   
-  var cctvs = <%= Cctv.all.group_by{|x| [x.product.name, x.product_id].join(":") }.to_json.html_safe %>;
-  var cctvsPrice = <%= Cctv.all.group_by{|x| [x.product.name, x.id].join(":") }.to_json.html_safe %>;
-
-
-$(document).ready(function(){
-  productValues();
-});
-
-</script>
-  
-  <%= simple_form_for(@customer) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="breadcrumb" style="background-color: #000000;">
     <div class="card-header">
