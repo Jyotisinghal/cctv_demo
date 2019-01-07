@@ -72,3 +72,4 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 gem "activeadmin"
 gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
+gem 'client_side_validations'

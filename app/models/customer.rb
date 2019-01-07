@@ -28,5 +28,4 @@ class Customer < ApplicationRecord
   validates :address, presence: true
 
 
-
 end
