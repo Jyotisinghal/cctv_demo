@@ -1,14 +1,24 @@
-
+<div class="row">
+<div class="col-md-2"></div>
 <%= form_for @customer  do |f| %>
+  <div style="color: red">
+  <% if @customer.errors.any? %>
+  <ul>
+    <% @customer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  </div>
     <div class="breadcrumb" style="background-color: #000000;">
     <div class="card-header">
       <h2 style="color: white;">CAMERA</h2>
-    </div>
+    </div><br/><br/>
     <table class="breadcrumb-item table">
       <tbody>
         <tr>
-          <td><strong>DOME CAMERA:</strong><input type="number_field" name="" class="form-control cctv" placeholder="  QUANTITY..." id="dome" onkeyup="addition()"></td>
-          <td><strong>BULLET CAMERA:</strong><input type="number_field" name="" class="form-control cctv" placeholder="  QUANTITY..." id="bullet" onkeyup="addition()"></td>
+          <td><strong>DOME CAMERA:</strong><input type="number_field" name="" class="form-control cctv" placeholder="QUANTITY..." id="dome" onkeyup="addition(), additionUpdateOfDomeCamera()" title="Dome Camera Quantity" ></td>
+          <td><strong>BULLET CAMERA:</strong><input type="number_field" name="" class="form-control cctv" placeholder="QUANTITY..." id="bullet" onkeyup="addition(), additionUpdateOfBulletCamera()" title="Bullet Camera Quantity" ></td>
           <td><strong>TOTAL CAMERA:  </strong><br><span id="demo" style="font-size: 24px;"></span></td>
         </tr>
       </tbody>
@@ -28,7 +38,7 @@
   </div>
 <% end %>
 
-
+</div>
 
 
 

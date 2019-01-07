@@ -1,7 +1,7 @@
 
 <table class="table">
     <thead>
-      <tr>
+      <tr style="text-align: center">
         <td>ITEM NAME</td>
         <td>CATEGORY</td>
         <td>PRICE</td>
@@ -18,10 +18,10 @@
           <td>
             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false}, {:class=>'form-control cctv 11', :autofocus => true} %>
           </td>
-          <td><%= item.number_field :price, :label => false, :readonly => true, class: "form-control price", onclick: "colorChange()" %></td>
-          <td><%= item.number_field :quantity, :label => false, :value => 1, :readonly => true, class: "qty domeQty form-control" %></td>
+          <td><%= item.number_field :price, :label => false, :readonly => true, class: "form-control price", id: "priceForUpdationOfDomeCamera" %></td>
+          <td><%= item.number_field :quantity, :label => false, :value => 1, :readonly => true, class: "qty domeQty form-control", id: "qtyForUpdationOfDomeCamera" %></td>
 
-          <td><span class="total">0</span></td>
+          <td><span class="total" id = "totalForUpdationOfDomeCamera">0</span></td>
           <%= item.hidden_field :customer_id, :label => false, as: :hidden %>
         </tr>
       <% end %>
@@ -33,9 +33,9 @@
           <td>
             <%= item.collection_select :cctv_id, Cctv.all, :id, :category, {include_blank: "Select Category", label: false}, {:class=>'form-control cctv 12'} %>
           </td>
-          <td><%= item.number_field :price, :label => false, :readonly => true, class: "form-control price" %></td>
-          <td><%= item.number_field :quantity, :label => false, :value => 1, :readonly => true, class: "qty bulletQty form-control" %></td>
-          <td><span class="total">0</span></td>
+          <td><%= item.number_field :price, :label => false, :readonly => true, class: "form-control price", id: "priceForUpdationOfBulletCamera" %></td>
+          <td><%= item.number_field :quantity, :label => false, :value => 1, :readonly => true, class: "qty bulletQty form-control", id: "qtyForUpdationOfBulletCamera" %></td>
+          <td><span class="total" id = "totalForUpdationOfBulletCamera">0</span></td>
           <%= item.hidden_field :customer_id, :label => false, as: :hidden %>
         </tr>
       <% end %>

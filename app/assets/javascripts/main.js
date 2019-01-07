@@ -36,16 +36,26 @@ function addition(){
       place_total.html(total);
       
       grandTotal();
-
-      $(this).css("background-color","black");
-
-     
  
     });
     
   });
 
+function additionUpdateOfDomeCamera() {
+  var domePrice = $('#priceForUpdationOfDomeCamera').val();
+  var domeqty = $('#qtyForUpdationOfDomeCamera').val();
+  var add = domePrice * domeqty;
 
+  $('#totalForUpdationOfDomeCamera').html(add);
+}
+
+function additionUpdateOfBulletCamera() {
+  var bulletPrice = $('#priceForUpdationOfBulletCamera').val();
+  var bulletqty = $('#qtyForUpdationOfBulletCamera').val();
+  var add = bulletPrice * bulletqty;
+
+  $('#totalForUpdationOfBulletCamera').html(add);
+}
 
   // function validation(){
   //   var allValues = document.getElementsByClassName('cctv');

@@ -22,6 +22,7 @@ class Customer < ApplicationRecord
 
   validates_associated :items
 
+
   validates :name, presence: true
   validates :contact, presence: true
   validates :email, presence: true

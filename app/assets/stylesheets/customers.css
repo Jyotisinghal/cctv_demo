@@ -12,3 +12,13 @@ p{
 	color: white;
 	background-color: black;
 }
+
+#dome, #bullet{
+  width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}

@@ -1,5 +1,4 @@
 
-
 <p>
   <strong>Name:</strong>
   <%= @customer.name %>
@@ -20,14 +19,14 @@
   <%= @customer.address %>
 </p>
 
-<table class="table">
+<table class="table conf-table" style="border: 1px solid black; border-collapse:collapse;">
   <thead>
-  <tr style="text-align: center;">
-    <th>ITEMS NAME</th>
-    <th>CATEGORY</th>
-    <th>PRICE</th>
-    <th>QUANTITY</th>
-    <th>TOTAL</th>
+  <tr>
+    <th style="border: 1px solid black; border-collapse:collapse;">ITEMS NAME</th>
+    <th style="border: 1px solid black; border-collapse:collapse;">CATEGORY</th>
+    <th style="border: 1px solid black; border-collapse:collapse;">PRICE</th>
+    <th style="border: 1px solid black; border-collapse:collapse;">QUANTITY</th>
+    <th style="border: 1px solid black; border-collapse:collapse;">TOTAL</th>
   </tr>
   </thead>
 
@@ -37,19 +36,19 @@
   <% @items.each do |item| %>
    
     <tr>  
-      <td><%= item.product_name %></td>
-      <td><%= item.cctv.category %></td>
-      <td style="text-align: right;"><%= item.price %></td>
-      <td style="text-align: right;"><%= item.quantity %></td>
+      <td style="border: 1px solid black; border-collapse:collapse;"><%= item.product_name %></td>
+      <td style="border: 1px solid black; border-collapse:collapse;"><%= item.cctv.category %></td>
+      <td style="border: 1px solid black; border-collapse:collapse;"><%= item.price %></td>
+      <td style="border: 1px solid black; border-collapse:collapse;"><%= item.quantity %></td>
       <% total = item.price.to_i * item.quantity.to_i %>
-      <td style="text-align: right;"><%= total %></td>
+      <td style="border: 1px solid black; border-collapse:collapse;"><%= total %></td>
     </tr>
     <% grandTotal += total %>
     <% end %>
    
    <tr>
    <td colspan="4"></td>
-   <td style="text-align: right;">GRAND TOTAL: <%= grandTotal %></td>
+   <td style="border: 1px solid black; border-collapse:collapse;">GRAND TOTAL: <%= grandTotal %></td>
    </tr>
   
   </tbody>
