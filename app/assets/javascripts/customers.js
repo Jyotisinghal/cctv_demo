@@ -113,16 +113,29 @@ function productValues(){
     selectedBrand = categoryId;
     selectProducts = cctvs[selectedCategory + ":" + selectedBrand];
     productDropdown = $('.1'+categoryId);
-    productDropdown.empty();
-    productDropdown.append($("<option></option>")
-      .attr("value","")
-      .text("Select category")); 
-    $.each(selectProducts, function(key, cctv) { 
-      productDropdown.append($("<option></option>")
-        .attr("value",cctv.id)
-        .text(cctv.category)); 
-    });
+    
+    var ale = productDropdown.val();
+    
+    if (ale == "" ) {    
+        productDropdown.empty();
+        productDropdown.append($("<option></option>")
+            .attr("value","")
+            .text("Select category")); 
+        $.each(selectProducts, function(key, cctv) { 
+        productDropdown.append($("<option></option>")
+            .attr("value",cctv.id)
+            .text(cctv.category)); 
+        });
+    }
+    else{
+        productDropdown.append($("<option></option>")
+            .attr("value",ale)
+            .text(cctv.category)); 
+    }
   }
+}
 
+function alertDomeMsg() {
+    alert('Fill the quantity above');
 }
 

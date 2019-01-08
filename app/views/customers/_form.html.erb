@@ -1,35 +1,33 @@
-<div class="row">
-<div class="col-md-2"></div>
+
 <%= form_for @customer  do |f| %>
   <div style="color: red">
-  <% if @customer.errors.any? %>
-  <ul>
-    <% @customer.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <% if @customer.errors.any? %>
+      <ul>
+        <% @customer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-  <% end %>
   </div>
-    <div class="breadcrumb" style="background-color: #000000;">
-    <div class="card-header">
+  <div class="breadcrumb" style="background-color: #000000;">
+    <div class="">
       <h2 style="color: white;">CAMERA</h2>
     </div><br/><br/>
-    <table class="breadcrumb-item table">
+    <table class="table" style="color: white;">
       <tbody>
         <tr>
           <td><strong>DOME CAMERA:</strong><input type="number_field" name="" class="form-control cctv" placeholder="QUANTITY..." id="dome" onkeyup="addition(), additionUpdateOfDomeCamera()" title="Dome Camera Quantity" ></td>
           <td><strong>BULLET CAMERA:</strong><input type="number_field" name="" class="form-control cctv" placeholder="QUANTITY..." id="bullet" onkeyup="addition(), additionUpdateOfBulletCamera()" title="Bullet Camera Quantity" ></td>
-          <td><strong>TOTAL CAMERA:  </strong><br><span id="demo" style="font-size: 24px;"></span></td>
+          <td><strong>TOTAL CAMERA:  </strong><br><span id="demo" style="font-size: 24px;">0</span></td>
         </tr>
       </tbody>
     </table>
-  </div> 
-  
+  </div>   
   <%= render 'item', f: f %> 
-<a class="btn btn-primary" data-toggle="modal" data-target="#customer-model" style="color: white;" id="customerModel" ><i class="fa fa-hand-o-up"></i> PROCEED</a>
-<div class="modal fade" id="customer-model" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" style="background-color: rgba(93, 103, 106, 0.31)">
-    <div class="modal-dialog modal-lg" id= "customermm">
-      <div class="modal-content" style="width: 650px;margin: 238px 0 0 6% !important;">
+  <a class="btn btn-primary" data-toggle="modal" data-target="#customer-model" style="color: white;" id="customerModel" ><i class="fa fa-hand-o-up"></i> PROCEED</a>
+  <div class="modal fade" id="customer-model" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog" id= "customermm">
+      <div class="modal-content" style="margin-top: 100px; background-color: #191e218f;">
         <div class="container-fluid invoice_wrapper" style="margin:5px">
           <%= render 'customer', f: f %> 
         </div>
@@ -38,7 +36,6 @@
   </div>
 <% end %>
 
-</div>
 
 
 

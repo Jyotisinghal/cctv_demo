@@ -16,9 +16,26 @@ p{
 #dome, #bullet{
   width: 50%;
 }
+.customer-model{
+  background-color: rgba(93, 103, 106, 0.31);
+  padding-right: 0px;
+}
 
 @media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+  #customer_dome_cameras_attributes_0_product_name{
+    width: 142px;
   }
+  .qty{
+    width: 40px;
+  }
+  #priceForUpdationOfDomeCamera{
+    width: 62px;
+  }
+
+  .modelSubmit{
+    margin-left: 32%;
+  }
+
 }
+
+

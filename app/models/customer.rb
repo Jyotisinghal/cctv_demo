@@ -24,8 +24,8 @@ class Customer < ApplicationRecord
 
 
   validates :name, presence: true
-  validates :contact, presence: true
-  validates :email, presence: true
+  validates :contact, presence: true, length: {is: 10}
+  validates :email, presence: true, format: { with: /(\A([a-z]*\s*)*\<*([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\>*\Z)/i }
   validates :address, presence: true
 
 
